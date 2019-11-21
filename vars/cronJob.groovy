@@ -4,7 +4,7 @@ def call(String name = 'human') {
     //echo "Hello, ${name}."
     fillCron()
 
-    def schedule = fillCron()
+    //def schedule = fillCron()
 
     pipeline {
         agent any
@@ -17,7 +17,15 @@ def call(String name = 'human') {
 //        triggers {
 //            parameterizedCron('''${schedule} ''')
 //        }
-
+     triggers {
+            parameterizedCron('''
+       H/2 * * * * %RUN_ENV=production
+       H/3 * * * * %SERVICE=case
+       H/3 * * * * %SERVICE=inventory
+       H/3 * * * * %SERVICE=router
+       H/3 * * * * %SERVICE=shipping
+        ''')
+        }
         stages {
             stage("Cron") {
                 steps {
