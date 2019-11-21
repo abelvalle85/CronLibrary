@@ -12,7 +12,7 @@ def call(String name = 'human') {
             string(name: 'SERVICE', defaultValue: 'dashboard', description: 'Service to run')
         }
 
-        fillCron()
+        //fillCron()
 
         stages {
             stage("Cron") {
