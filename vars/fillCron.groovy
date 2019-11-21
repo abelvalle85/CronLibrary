@@ -1,4 +1,4 @@
-def cron (){
+def call (){
     printerln ("""H/2 * * * * %RUN_ENV=production
        H/3 * * * * %SERVICE=case
        H/3 * * * * %SERVICE=inventory
