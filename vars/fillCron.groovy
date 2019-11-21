@@ -1,6 +1,5 @@
 def call (){
-    triggers {
-        parameterizedCron('''
+    '''
        H/2 * * * * %RUN_ENV=production
        H/3 * * * * %SERVICE=case
        H/3 * * * * %SERVICE=inventory

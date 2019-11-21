@@ -3,7 +3,7 @@ def call(String name = 'human') {
     // Scripted Pipeline
     //echo "Hello, ${name}."
 
-    fillCron()
+    def schedule = fillCron()
 
     pipeline {
         agent any
@@ -13,6 +13,11 @@ def call(String name = 'human') {
         }
 
         //fillCron()
+        triggers {
+            parameterizedCron('''
+            echo $schedule
+        ''')
+        }
 
         stages {
             stage("Cron") {
