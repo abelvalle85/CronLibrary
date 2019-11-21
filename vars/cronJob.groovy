@@ -3,7 +3,7 @@ def call(String name = 'human') {
     // Scripted Pipeline
     //echo "Hello, ${name}."
 
-    //fillCron()
+    fillCron()
 
     pipeline {
         agent any
