@@ -2,6 +2,7 @@ def call(String name = 'human') {
     // Any valid steps can be called from this code, just like in other
     // Scripted Pipeline
     //echo "Hello, ${name}."
+    fillCron()
 
     def schedule = fillCron()
 
@@ -14,9 +15,7 @@ def call(String name = 'human') {
 
         //fillCron()
         triggers {
-            parameterizedCron('''
-            echo $schedule
-        ''')
+            parameterizedCron(''' echo $schedule ''')
         }
 
         stages {
