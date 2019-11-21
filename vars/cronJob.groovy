@@ -3,6 +3,6 @@ def call(String name = 'human') {
     // Scripted Pipeline
     echo "Hello, ${name}."
 
-    echo "Variables ${fillCron.cron}"
-    
+    cron()
+
 }
