@@ -15,7 +15,7 @@ def call(String name = 'human') {
 
         //fillCron()
         triggers {
-            parameterizedCron(''' echo $schedule ''')
+            parameterizedCron('''${schedule} ''')
         }
 
         stages {
