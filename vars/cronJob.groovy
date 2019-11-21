@@ -11,11 +11,9 @@ def call(String name = 'human') {
             string(name: 'RUN_ENV', defaultValue: 'stage', description: 'Which environment will run?')
             string(name: 'SERVICE', defaultValue: 'dashboard', description: 'Service to run')
         }
-        triggers {
-            parameterizedCron('''
+
         fillCron()
-        ''')
-        }
+
         stages {
             stage("Cron") {
                 steps {
