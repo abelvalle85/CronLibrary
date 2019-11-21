@@ -5,6 +5,6 @@ def call (){
        H/3 * * * * %SERVICE=inventory
        H/3 * * * * %SERVICE=router
        H/3 * * * * %SERVICE=shipping
-        ''')
+        '''
     }
 }
