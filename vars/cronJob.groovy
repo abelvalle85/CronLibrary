@@ -2,7 +2,7 @@ def call(String name = 'human') {
     // Any valid steps can be called from this code, just like in other
     // Scripted Pipeline
     //echo "Hello, ${name}."
-    fillCron()
+  //  fillCron()
 
     //def schedule = fillCron()
 
@@ -13,7 +13,7 @@ def call(String name = 'human') {
             string(name: 'SERVICE', defaultValue: 'dashboard', description: 'Service to run')
         }
 
-        fillCron()
+       // fillCron()
 //        triggers {
 //            parameterizedCron('''${schedule} ''')
 //        }
