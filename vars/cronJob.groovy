@@ -5,13 +5,17 @@ jenkins = Jenkins.instance
 def call(Map pipelineParams) {
 
     pipeline {
-        agent none
+        agent any
         parameters {
             string(name: 'RUN_ENV', defaultValue: 'stage', description: 'Which environment will run?')
             string(name: 'SERVICE', defaultValue: 'dashboard', description: 'Service to run')
         }
         triggers {
-            parameterizedCron(fillCron())
+            parameterizedCron("""H/2 * * * * %RUN_ENV=production
+                H/3 * * * * %SERVICE=case
+                H/3 * * * * %SERVICE=inventory
+                H/3 * * * * %SERVICE=router
+                H/3 * * * * %SERVICE=shipping""")
         }
         stages {
             node {
