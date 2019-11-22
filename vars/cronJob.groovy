@@ -25,8 +25,8 @@ def call(Map pipelineParams) {
            // node {
                 stage("Cron") {
                     steps {
-                        echo "${params.SERVICE} ${params.SCRIPT} ${params.RUN_ENV}"
-                        script { currentBuild.description = "${params.SERVICE} ${params.RUN_ENV}" }
+                        echo "${params.SERVICE} ${params.RUN_ENV}"
+                        script { currentBuild.description = "${params.SERVICE} ${params.SCRIPT} ${params.RUN_ENV}" }
                         //sh 'PROJECT=oo SERVICE=case . /var/oo/etc/scripts/init-nvm.sh '
                         echo "PROJECT=oo SERVICE=${params.SERVICE} . /var/oo/etc/scripts/init-nvm.sh "
                         //sh 'NODE_ENV=production coffee /var/oo/oo-case/crons/reject2.coffee"
