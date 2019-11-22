@@ -9,6 +9,7 @@ def call(Map pipelineParams) {
         parameters {
             string(name: 'RUN_ENV', defaultValue: 'stage', description: 'Which environment will run?')
             string(name: 'SERVICE', defaultValue: 'dashboard', description: 'Service to run')
+            string(name: 'SCRIPT', defaultValue: 'dashboard', description: 'Script to run')
         }
         triggers {
             parameterizedCron("""H/2 * * * * % RUN_ENV=production;SERVICE=inventory;SCRIPT=alpha-broder-test
