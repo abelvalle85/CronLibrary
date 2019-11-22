@@ -3,7 +3,7 @@ def call(Map pipelineParams) {
     // Scripted Pipeline
     //echo "Hello, ${name}."
   //  fillCron()
-    def schedule = new fillCron()
+   // def schedule = new fillCron()
 
     pipeline {
         agent any
@@ -14,7 +14,7 @@ def call(Map pipelineParams) {
 
        // fillCron()
         triggers {
-            parameterizedCron("""schedule.fillCron()""")
+            parameterizedCron("""fillCron()""")
         }
     /* triggers {
             parameterizedCron('''
