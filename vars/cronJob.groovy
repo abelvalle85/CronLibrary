@@ -13,8 +13,8 @@ def call(Map pipelineParams) {
         triggers {
             parameterizedCron(fillCron())
         }
-        //node {
-            stages {
+        //stages {
+            node {
                 stage("Cron") {
                     steps {
                         echo "${params.SERVICE} ${params.RUN_ENV}"
