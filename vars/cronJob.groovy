@@ -8,8 +8,8 @@ def call(Map pipelineParams) {
           //  string(name: 'RUN_ENV', defaultValue: 'stage', description: 'Which environment will run?')
           //  string(name: 'SERVICE', defaultValue: 'dashboard', description: 'Service to run')
 
-        //stages {
-            node {
+        node {
+            stages {
                 stage("Cron") {
                     steps {
                         echo "${params.SERVICE} ${params.RUN_ENV}"
