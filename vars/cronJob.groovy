@@ -5,7 +5,7 @@ def call(Map pipelineParams) {
     pipeline {
         agent any
         triggers {
-            parameterizedCron(this.binding.fillCron())
+            parameterizedCron(fillCron())
         }
         //parameters {
           //  string(name: 'RUN_ENV', defaultValue: 'stage', description: 'Which environment will run?')
