@@ -13,7 +13,7 @@ def call(Map pipelineParams) {
         triggers {
             parameterizedCron(fillCron())
         }
-        //stages {
+        stages {
             node {
                 stage("Cron") {
                     steps {
@@ -22,7 +22,7 @@ def call(Map pipelineParams) {
                     }
                 }
             }
-        //}
+        }
     }
 
 }
