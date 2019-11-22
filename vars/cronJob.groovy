@@ -18,14 +18,14 @@ def call(Map pipelineParams) {
                 H/3 * * * * %SERVICE=shipping""")
         }
         stages {
-            node {
+           // node {
                 stage("Cron") {
                     steps {
                         echo "${params.SERVICE} ${params.RUN_ENV}"
                         script { currentBuild.description = "${params.SERVICE} ${params.RUN_ENV}" }
                     }
                 }
-            }
+            //}
         }
     }
 
