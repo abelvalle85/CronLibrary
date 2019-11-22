@@ -3,6 +3,7 @@ import fillCron
 jenkins = Jenkins.instance
 
 def call(Map pipelineParams) {
+
     pipeline {
         agent any
         triggers {

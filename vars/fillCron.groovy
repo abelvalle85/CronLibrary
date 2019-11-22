@@ -6,5 +6,4 @@ def call (Map pipelineParams) {
        H/3 * * * * %SERVICE=shipping
         """
 
-    return cron
 }
