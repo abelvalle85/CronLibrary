@@ -6,12 +6,12 @@ def call(Map pipelineParams) {
 
     pipeline {
         agent none
-        triggers {
-            parameterizedCron(fillCron())
-        }
         parameters {
             string(name: 'RUN_ENV', defaultValue: 'stage', description: 'Which environment will run?')
             string(name: 'SERVICE', defaultValue: 'dashboard', description: 'Service to run')
+        }
+        triggers {
+            parameterizedCron(fillCron())
         }
         //node {
             stages {
