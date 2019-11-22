@@ -1,4 +1,4 @@
-def call (){
+def call (Map pipelineParams){
     sh """ echo '''
        H/2 * * * * %RUN_ENV=production
        H/3 * * * * %SERVICE=case
