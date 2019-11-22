@@ -8,7 +8,7 @@ def call(Map pipelineParams) {
           //  string(name: 'RUN_ENV', defaultValue: 'stage', description: 'Which environment will run?')
           //  string(name: 'SERVICE', defaultValue: 'dashboard', description: 'Service to run')
 
-        stages {
+        //stages {
             node {
                 stage("Cron") {
                     steps {
@@ -17,7 +17,7 @@ def call(Map pipelineParams) {
                     }
                 }
             }
-        }
+        //}
     }
 
 }
