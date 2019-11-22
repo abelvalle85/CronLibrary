@@ -9,10 +9,12 @@ def call(Map pipelineParams) {
           //  string(name: 'SERVICE', defaultValue: 'dashboard', description: 'Service to run')
 
         stages {
-            stage("Cron") {
-                steps {
-                    echo "${params.SERVICE} ${params.RUN_ENV}"
-                    script { currentBuild.description = "${params.SERVICE} ${params.RUN_ENV}" }
+            node {
+                stage("Cron") {
+                    steps {
+                        echo "${params.SERVICE} ${params.RUN_ENV}"
+                        script { currentBuild.description = "${params.SERVICE} ${params.RUN_ENV}" }
+                    }
                 }
             }
         }
