@@ -1,3 +1,6 @@
+import jenkins.model.*
+jenkins = Jenkins.instance
+
 def call(Map pipelineParams) {
     pipeline {
         agent any
