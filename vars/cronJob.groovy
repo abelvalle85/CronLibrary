@@ -1,5 +1,5 @@
 def call(Map pipelineParams) {
-    pipeline {
+    node {
         agent any
             triggers {
                 parameterizedCron(fillCron())
