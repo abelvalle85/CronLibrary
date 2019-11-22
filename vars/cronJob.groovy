@@ -14,7 +14,7 @@ def call(Map pipelineParams) {
 
        // fillCron()
         triggers {
-            parameterizedCron("""fillCron()""")
+            parameterizedCron(fillCron())
         }
     /* triggers {
             parameterizedCron('''
