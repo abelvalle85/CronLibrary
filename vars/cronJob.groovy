@@ -11,11 +11,14 @@ def call(Map pipelineParams) {
             string(name: 'SERVICE', defaultValue: 'dashboard', description: 'Service to run')
         }
         triggers {
-            parameterizedCron("""H/2 * * * * %RUN_ENV=production
-                H/3 * * * * %SERVICE=case
-                H/3 * * * * %SERVICE=inventory
-                H/3 * * * * %SERVICE=router
-                H/3 * * * * %SERVICE=shipping""")
+            parameterizedCron("""H/2 * * * * % RUN_ENV=production;SERVICE=inventory;SCRIPT=alpha-broder-test
+            H/40 * * * * % SERVICE=inventory;SCRIPT=alpha-broder-test
+            H/10 * * * * % RUN_ENV=production;SERVICE=inventory;SCRIPT=orderBlanks/order
+            H/50 * * * * % SERVICE=inventory;SCRIPT=orderBlanks/order
+            H/15 * * * * % RUN_ENV=production;SERVICE=inventory;SCRIPT=rejections/pruneRejections
+            H/55 * * * * % SERVICE=inventory;SCRIPT=rejections/pruneRejections
+            H/20 * * * * % RUN_ENV=production;SERVICE=inventory;SCRIPT=updateOrder/importMissing
+            H/5 * * * * % RUN_ENV=production;SERVICE=inventory;SCRIPT=updatePrimeInventory/pullAos""")
         }
         stages {
            // node {
@@ -23,6 +26,10 @@ def call(Map pipelineParams) {
                     steps {
                         echo "${params.SERVICE} ${params.RUN_ENV}"
                         script { currentBuild.description = "${params.SERVICE} ${params.RUN_ENV}" }
+                        //sh 'PROJECT=oo SERVICE=case . /var/oo/etc/scripts/init-nvm.sh '
+                        echo "PROJECT=oo SERVICE=${params.SERVICE} . /var/oo/etc/scripts/init-nvm.sh "
+                        //sh 'NODE_ENV=production coffee /var/oo/oo-case/crons/reject2.coffee"
+                        echo "NODE_ENV=${params.RUN_ENV} coffee /var/oo/oo-${params.SERVICE}/crons/${params.SCRIPT}.coffee"
                     }
                 }
             //}
