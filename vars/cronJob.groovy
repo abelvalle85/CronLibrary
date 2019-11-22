@@ -9,11 +9,11 @@ def call(Map pipelineParams) {
         triggers {
             parameterizedCron(fillCron().cron)
         }
-        //parameters {
-          //  string(name: 'RUN_ENV', defaultValue: 'stage', description: 'Which environment will run?')
-          //  string(name: 'SERVICE', defaultValue: 'dashboard', description: 'Service to run')
-
-        node {
+        parameters {
+            string(name: 'RUN_ENV', defaultValue: 'stage', description: 'Which environment will run?')
+            string(name: 'SERVICE', defaultValue: 'dashboard', description: 'Service to run')
+        }
+        //node {
             stages {
                 stage("Cron") {
                     steps {
@@ -22,7 +22,7 @@ def call(Map pipelineParams) {
                     }
                 }
             }
-        }
+        //}
     }
 
 }
