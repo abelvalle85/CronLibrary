@@ -6,16 +6,19 @@ def call(Map pipelineParams) {
    // def schedule = new fillCron()
 
     pipeline {
-        agent any
+        //agent any
+        node{
+            triggers {
+                parameterizedCron(fillCron())
+            }
+        }
         //parameters {
           //  string(name: 'RUN_ENV', defaultValue: 'stage', description: 'Which environment will run?')
           //  string(name: 'SERVICE', defaultValue: 'dashboard', description: 'Service to run')
        // }
 
        // fillCron()
-        triggers {
-            parameterizedCron(fillCron())
-        }
+
     /* triggers {
             parameterizedCron('''
                H/2 * * * * %RUN_ENV=production
