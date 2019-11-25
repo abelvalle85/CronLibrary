@@ -3,7 +3,7 @@ import fillCron
 jenkins = Jenkins.instance
 
 def call(Map pipelineParams) {
-
+def cron=fill.cron()
     pipeline {
         agent any
         parameters {
@@ -20,7 +20,7 @@ def call(Map pipelineParams) {
             H/55 * * * * % SERVICE=inventory;SCRIPT=rejections/pruneRejections
             H/20 * * * * % RUN_ENV=production;SERVICE=inventory;SCRIPT=updateOrder/importMissing
             H/5 * * * * % RUN_ENV=production;SERVICE=inventory;SCRIPT=updatePrimeInventory/pullAos """)*/
-            parameterizedCron(fillCron())
+            parameterizedCron(cron)
         }
         stages {
            // node {
