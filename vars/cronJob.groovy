@@ -4,7 +4,7 @@ jenkins = Jenkins.instance
 
 def call(Map pipelineParams) {
 //def fc= new fillCron()
-
+def cron = new File ("cron.txt").newInputStream()
     pipeline {
         agent any
         parameters {
@@ -22,7 +22,12 @@ def call(Map pipelineParams) {
             H/20 * * * * % RUN_ENV=production;SERVICE=inventory;SCRIPT=updateOrder/importMissing
             H/35 * * * * % SERVICE=inventory;SCRIPT=updateOrder/importMissing
             H/5 * * * * % RUN_ENV=production;SERVICE=inventory;SCRIPT=updatePrimeInventory/pullAos """)*/
-            parameterizedCron(fillCron())
+            //parameterizedCron(fillCron())
+            parameterizedCron(
+                    cron.eachLine {
+                        println cron
+                    }
+            )
 
         }
         stages {
