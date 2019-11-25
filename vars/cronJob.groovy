@@ -4,8 +4,8 @@ jenkins = Jenkins.instance
 
 def call(Map pipelineParams) {
 //def fc= new fillCron()
-    List<String> readFileInList(String filePath) {
-        File file = new File("cron.txt")
+    List<String> readFileInList(String ="cron.txt") {
+        File file = new File(filePath)
         def lines = file.readLines()
         return lines
     }
