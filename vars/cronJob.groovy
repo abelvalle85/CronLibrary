@@ -4,15 +4,16 @@ jenkins = Jenkins.instance
 
 def call(Map pipelineParams) {
 //def fc= new fillCron()
-    List<String> readFileInList(String ="cron.txt") {
-        File file = new File(filePath)
-        def lines = file.readLines()
-        return lines
-    }
-
-
     pipeline {
         agent any
+
+        environment {
+            List<String> readFileInList(String ="cron.txt") {
+                File file = new File(filePath)
+                def lines = file.readLines()
+                return lines
+            }
+        }
         parameters {
             string(name: 'RUN_ENV', defaultValue: 'stage', description: 'Which environment will run?')
             string(name: 'SERVICE', defaultValue: 'dashboard', description: 'Service to run')
