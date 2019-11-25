@@ -11,5 +11,6 @@ def call (Map pipelineParams) {
             H/5 * * * * % RUN_ENV=production;SERVICE=inventory;SCRIPT=updatePrimeInventory/pullAos'''
         println cron*/
     //}
-
+    def lines = readFile.readFileInList("cron.txt")
+    println lines
 }

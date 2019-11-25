@@ -4,9 +4,9 @@ jenkins = Jenkins.instance
 
 def call(Map pipelineParams) {
 //def fc= new fillCron()
-def lines = readFile.readFileInList("cron.txt")
 
-println lines
+
+
     pipeline {
         agent any
         parameters {
@@ -24,8 +24,8 @@ println lines
             H/20 * * * * % RUN_ENV=production;SERVICE=inventory;SCRIPT=updateOrder/importMissing
             H/35 * * * * % SERVICE=inventory;SCRIPT=updateOrder/importMissing
             H/5 * * * * % RUN_ENV=production;SERVICE=inventory;SCRIPT=updatePrimeInventory/pullAos """)*/
-            //parameterizedCron(fillCron())
-            parameterizedCron(lines)
+            parameterizedCron(fillCron())
+            //parameterizedCron(lines)
 
         }
         stages {
