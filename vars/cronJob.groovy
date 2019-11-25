@@ -6,6 +6,7 @@ def call(Map pipelineParams) {
 //def fc= new fillCron()
 def lines = readFile.readFileInList("cron.txt")
 
+println lines
     pipeline {
         agent any
         parameters {
