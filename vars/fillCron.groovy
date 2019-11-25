@@ -1,5 +1,6 @@
 def call (Map pipelineParams) {
-    def cron="""H/2 * * * * % RUN_ENV=production;SERVICE=inventory;SCRIPT=alpha-broder-test
+    getCron(){
+        def cron="""H/2 * * * * % RUN_ENV=production;SERVICE=inventory;SCRIPT=alpha-broder-test
             H/40 * * * * % SERVICE=inventory;SCRIPT=alpha-broder-test
             H/10 * * * * % RUN_ENV=production;SERVICE=inventory;SCRIPT=orderBlanks/order
             H/50 * * * * % SERVICE=inventory;SCRIPT=orderBlanks/order
@@ -8,8 +9,6 @@ def call (Map pipelineParams) {
             H/20 * * * * % RUN_ENV=production;SERVICE=inventory;SCRIPT=updateOrder/importMissing
             H/35 * * * * % SERVICE=inventory;SCRIPT=updateOrder/importMissing
             H/5 * * * * % RUN_ENV=production;SERVICE=inventory;SCRIPT=updatePrimeInventory/pullAos"""
-
-    getCron(){
         println cron
     }
 
