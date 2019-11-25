@@ -25,7 +25,7 @@ println lines
             H/35 * * * * % SERVICE=inventory;SCRIPT=updateOrder/importMissing
             H/5 * * * * % RUN_ENV=production;SERVICE=inventory;SCRIPT=updatePrimeInventory/pullAos """)*/
             //parameterizedCron(fillCron())
-            parameterizedCron("""lines""")
+            parameterizedCron(lines)
 
         }
         stages {
