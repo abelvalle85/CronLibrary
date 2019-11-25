@@ -6,6 +6,7 @@ def call (Map pipelineParams) {
             H/15 * * * * % RUN_ENV=production;SERVICE=inventory;SCRIPT=rejections/pruneRejections
             H/55 * * * * % SERVICE=inventory;SCRIPT=rejections/pruneRejections
             H/20 * * * * % RUN_ENV=production;SERVICE=inventory;SCRIPT=updateOrder/importMissing
+            H/35 * * * * % SERVICE=inventory;SCRIPT=updateOrder/importMissing
             H/5 * * * * % RUN_ENV=production;SERVICE=inventory;SCRIPT=updatePrimeInventory/pullAos"""
 
     println cron
