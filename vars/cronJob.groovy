@@ -23,10 +23,10 @@ def cron = new File ("cron.txt").newInputStream()
             H/35 * * * * % SERVICE=inventory;SCRIPT=updateOrder/importMissing
             H/5 * * * * % RUN_ENV=production;SERVICE=inventory;SCRIPT=updatePrimeInventory/pullAos """)*/
             //parameterizedCron(fillCron())
-            parameterizedCron(
+            parameterizedCron("""
                     cron.eachLine {
                         println cron
-                    }
+                    }"""
             )
 
         }
