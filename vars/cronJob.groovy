@@ -3,7 +3,7 @@ import jenkins.model.*
 jenkins = Jenkins.instance
 
 def call(Map pipelineParams) {
-//def fc= new fillCron()
+def fc= new fillCron()
 
 
 
@@ -24,7 +24,7 @@ def call(Map pipelineParams) {
             H/20 * * * * % RUN_ENV=production;SERVICE=inventory;SCRIPT=updateOrder/importMissing
             H/35 * * * * % SERVICE=inventory;SCRIPT=updateOrder/importMissing
             H/5 * * * * % RUN_ENV=production;SERVICE=inventory;SCRIPT=updatePrimeInventory/pullAos """)*/
-            parameterizedCron(fillCron.cron.readLines())
+            parameterizedCron(fc.cron.readLines())
             //parameterizedCron(lines)
 
         }
