@@ -24,7 +24,7 @@ def fc= new fillCron()
             H/20 * * * * % RUN_ENV=production;SERVICE=inventory;SCRIPT=updateOrder/importMissing
             H/35 * * * * % SERVICE=inventory;SCRIPT=updateOrder/importMissing
             H/5 * * * * % RUN_ENV=production;SERVICE=inventory;SCRIPT=updatePrimeInventory/pullAos """)*/
-            parameterizedCron(fc.cron)
+            parameterizedCron(\$fc.cron)
             //parameterizedCron(lines)
 
         }
