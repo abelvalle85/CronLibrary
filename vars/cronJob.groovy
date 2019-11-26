@@ -5,7 +5,7 @@ jenkins = Jenkins.instance
 def call(Map pipelineParams) {
 //def fc= new fillCron()
 
-println "Paramas ;"+pipelineParams
+println "Paramas ;"+pipelineParams.RUN_ENV
 
     pipeline {
         agent any
