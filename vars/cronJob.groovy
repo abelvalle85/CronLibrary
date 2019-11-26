@@ -32,7 +32,7 @@ def call(Map pipelineParams) {
            // node {
                 stage("Cron") {
                     steps {
-                        echo ${env}
+                        echo "${env}"
                         echo "${params.SERVICE} ${params.RUN_ENV}"
 
                         script { currentBuild.description = "${params.SERVICE} ${params.SCRIPT} ${params.RUN_ENV}" }
