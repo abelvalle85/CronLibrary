@@ -1,6 +1,8 @@
-def call (Map pipelineParams) {
+def call (Map p) {
     //getCron(){
     //sh 'pwd; ls -l'
+    println p.WS
+    println p.SERVICE
     def cron="""H/2 * * * * % RUN_ENV=production;SERVICE=inventory;SCRIPT=alpha-broder-test
             H/40 * * * * % SERVICE=inventory;SCRIPT=alpha-broder-test
             H/10 * * * * % RUN_ENV=production;SERVICE=inventory;SCRIPT=orderBlanks/order

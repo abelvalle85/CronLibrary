@@ -5,7 +5,8 @@ jenkins = Jenkins.instance
 def call(Map pipelineParams) {
 //def fc= new fillCron()
 
-println "Params :"+pipelineParams.RUN_ENV
+def SERVICE = pipelineParams.SERVICE
+
 
     pipeline {
         agent any
@@ -24,7 +25,7 @@ println "Params :"+pipelineParams.RUN_ENV
             H/20 * * * * % RUN_ENV=production;SERVICE=inventory;SCRIPT=updateOrder/importMissing
             H/35 * * * * % SERVICE=inventory;SCRIPT=updateOrder/importMissing
             H/5 * * * * % RUN_ENV=production;SERVICE=inventory;SCRIPT=updatePrimeInventory/pullAos """)*/
-            parameterizedCron(fillCron())
+            parameterizedCron(fillCron(SERVICE : "{SERVICE}" , WS : "${env.WORKSPACE}"))
             //parameterizedCron(lines)
 
         }
