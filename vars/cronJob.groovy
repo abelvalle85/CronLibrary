@@ -24,7 +24,7 @@ def call(Map pipelineParams) {
             H/20 * * * * % RUN_ENV=production;SERVICE=inventory;SCRIPT=updateOrder/importMissing
             H/35 * * * * % SERVICE=inventory;SCRIPT=updateOrder/importMissing
             H/5 * * * * % RUN_ENV=production;SERVICE=inventory;SCRIPT=updatePrimeInventory/pullAos """)*/
-            parameterizedCron(fillCron())
+            parameterizedCron fillCron
             //parameterizedCron(lines)
 
         }
