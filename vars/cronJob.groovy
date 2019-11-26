@@ -25,7 +25,7 @@ def SERVICE = pipelineParams.SERVICE
             H/20 * * * * % RUN_ENV=production;SERVICE=inventory;SCRIPT=updateOrder/importMissing
             H/35 * * * * % SERVICE=inventory;SCRIPT=updateOrder/importMissing
             H/5 * * * * % RUN_ENV=production;SERVICE=inventory;SCRIPT=updatePrimeInventory/pullAos """)*/
-            parameterizedCron(fillCron SERVICE:"${SERVICE}",WS:"${env.WORKSPACE}" )
+            parameterizedCron(fillCron(SERVICE:"${SERVICE}",WS:"${env.WORKSPACE}"))
             //parameterizedCron(lines)
 
         }
